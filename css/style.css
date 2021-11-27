@@ -1,121 +1,118 @@
-/* common styles */
+/* === CSS Variables === */
+:root {
+  /* === COLORS === */
+  /* Primary */
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  /* Neutral: Light Theme */
+  --clr-fill-primary: hsl(236, 33%, 92%);
+  --clr-fill-secondary: hsl(0, 0%, 98%);
+  --clr-text-base: hsl(237, 14%, 26%);
+  --clr-muted-100: hsl(236, 9%, 61%);
+  --clr-muted-200: hsl(233, 11%, 84%);
+  --clr-muted-hover: hsl(234, 11%, 52%);
+
+  /* Neutral: Dark Theme */
+  /* --clr-fill-primary: hsl(235, 21%, 11%);
+  --clr-fill-secondary: hsl(235, 24%, 19%);
+  --clr-text-base: hsl(234, 39%, 85%);
+  --clr-muted-200: hsl(237, 14%, 26%);
+  --clr-muted-100: hsl(234, 11%, 52%);
+  --clr-muted-hover: hsl(236, 33%, 92%); */
+
+  /* === TYPOGRAPHY === */
+  --font-family: "Josefin Sans", sans-serif;
+  --font-size: 18px;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+/* === Reset Styles === */
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
 body {
-  width: 100vw;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(#ff01ea, #ce3fc2);
-  font-family: "Josefin Sans", sans-serif;
+  font-weight: var(--font-weight-regular);
+  font-size: 100%;
+  background-color: var(--clr-fill-primary);
 }
 
-button:hover {
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
   cursor: pointer;
-  background-color: #73e831;
 }
 
-ul {
-  list-style-type: none; /* get rid of bullet points on side of list items */
-}
-
-/* common style ends */
-
-/* container */
+/* === CSS Utilities === */
 .container {
-  background-color: rgb(246, 253, 145);
-  border: 1px solid grey;
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px grey;
-  min-width: 700px;
+  max-width: 1000px;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Page Styles === */
+/* header */
+.header {
+  height: 200px;
+  padding-top: 2.65rem;
+  background-image: url("/images/bg-mobile-light.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nav {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 20px auto;
-  padding: 20px;
+  justify-content: space-between;
 }
 
-h1 {
-  color: rgb(4, 148, 81);
-  font-size: 3rem;
+.nav-logo {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
 }
 
-/* todo-form */
-
-.todo-form {
-  margin: 40px 0px;
+/* main */
+.todo {
+  position: relative;
+  margin-top: -5rem;
 }
 
-.todo-input {
-  width: 250px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 1rem;
+.todo > * + * {
+  margin-top: 1rem;
 }
 
-.add-button {
-  background-color: #0f5c19;
-  color: #fff;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  padding: 7px;
-  font-size: 1.2rem;
+/* Dummy classes for placeholder */
+.dummy-class {
+  background-color: var(--clr-fill-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-muted-100);
 }
 
-/* todo-form style ends */
-
-/* todo-items */
-.todo-items {
-  min-width: 350px;
+.todo-form,
+.todo-actions {
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* each li with class="item" */
-.item {
-  background-color: #fff;
-  padding: 10px;
-  font-size: 1.1rem;
+.todo-list {
+  height: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.item:first-child {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-}
-
-.item:last-child {
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-}
-
-/* item style end */
-
-.checkbox {
-  margin-right: 10px;
-}
-
-.delete-button {
-  float: right;
-  background-color: #dc143c;
-  border: none;
-  outline: none;
-  border-radius: 7px;
-  padding: 2px 5px;
-  margin-left: 10px;
-  font-size: 1.1rem;
-  font-weight: 550;
-}
-
-/* applied when the todo item is checked */
-.checked {
-  text-decoration: line-through;
-}
-
-/* todo-items style ends */
-
-/* container style ends */
