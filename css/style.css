@@ -68,7 +68,7 @@ button {
 .header {
   height: 200px;
   padding-top: 2.65rem;
-  background-image: url("/images/bg-mobile-light.jpg");
+  background-image: url("../images/bg-mobile-light.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
