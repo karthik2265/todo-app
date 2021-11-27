@@ -1,5 +1,4 @@
 const todoForm = document.querySelector(".todo-form");
-const todoInput = document.querySelector(".todo-input");
 const todoItemsList = document.querySelector(".todo-items");
 
 let todos = [];
@@ -9,7 +8,9 @@ todoForm.addEventListener("submit", (e) => {
   // prevent the page from reloading when submitting the form
   e.preventDefault();
   // call addTodo function with input box current value
-  addTodo(todoInput.value);
+  addTodo(todoForm.newTodo.value);
+  // finally clear the input box value
+  todoForm.newTodo.value = "";
 });
 
 // function to add todo
@@ -26,9 +27,6 @@ addTodo = (item) => {
     // then add it to todos array
     todos.push(todo);
     addToLocalStorage(todos); // then adding it to localStorage
-
-    // finally clear the input box value
-    todoInput.value = "";
   }
 };
 
@@ -47,17 +45,20 @@ renderTodos = (todos) => {
     const li = document.createElement("li");
     // <li class="item"> </li>
     li.setAttribute("class", "item");
-    // <li class="item" data-key="20200708"> </li>
-    li.setAttribute("data-key", item.id);
     // if item is completed, then add a class to <li> called 'checked', which will add line-through style
     if (item.completed === true) {
       li.classList.add("checked");
     }
 
     li.innerHTML = `
-      <input type="checkbox" class="checkbox" ${checked}>
-      ${item.name}
-      <button class="delete-button">X</button>
+      <input
+        type="checkbox"
+        id="${item.id}"
+        class="checkbox"
+        onClick="toggle(${item.id})"
+        ${checked}>
+      <label for="${item.id}">${item.name}</label>
+      <button class="delete-button" onClick="deleteTodo(${item.id})">X</button>
     `;
     // finally add the <li> to the <ul>
     todoItemsList.append(li);
@@ -75,9 +76,7 @@ addToLocalStorage = (todos) => {
   console.log(todos, null, 2);
 };
 
-
 // make a function called getFromLocalStorage() below the previous code, then call it.
-
 
 // function helps to get everything from local storage
 getFromLocalStorage = () => {
@@ -118,19 +117,3 @@ function deleteTodo(id) {
 
 // initially get everything from localStorage
 getFromLocalStorage();
-
-//toggle() & deleteTodo()
-
-// after that addEventListener <ul> with class=todoItems. Because we need to listen for click event in all delete-button and checkbox
-todoItemsList.addEventListener("click", (e) => {
-  // check if the event is on checkbox
-  if (e.target.type === "checkbox") {
-    // toggle the state
-    toggle(e.target.parentElement.getAttribute("data-key"));
-  }
-  // check if that is a delete-button
-  if (e.target.classList.contains("delete-button")) {
-    // get id from data-key attribute's value of parent <li> where the delete-button is present
-    deleteTodo(e.target.parentElement.getAttribute("data-key"));
-  }
-});
