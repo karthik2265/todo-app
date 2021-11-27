@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Todo app</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Task List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <h1>Task List</h1>
-
-      <form class="todo-form">
-        <input type="text" class="todo-input" placeholder="Add a Todo..." />
-        <button type="submit" class="add-button">Add Task</button>
-      </form>
-
-      <ul class="todo-items">
-        <!--dummy item -->
-        <li class="item" data-key="1594003133171">
-          <input class="checkbox" type="checkbox" />
-          Go to Gym
-          <button class="delete-button">X</button>
-        </li>
-      </ul>
-    </div>
-
-    <script type="text/javascript" src="js/app.js"></script>
+    <header class="header">
+      <nav class="container nav">
+        <div class="nav-logo">Todo</div>
+        <button class="btn btn-icon"><img src="/images/icon-moon.svg" alt="" /></button>
+      </nav>
+    </header>
+    <main class="todo container">
+      <div class="todo-form dummy-class">TODO FORM HERE</div>
+      <div class="todo-list dummy-class">TODO LIST HERE</div>
+      <div class="todo-actions dummy-class">TODO ACTIONS HERE</div>
+    </main>
+    <!-- <script type="text/javascript" src="js/app.js"></script> -->
   </body>
 </html>
