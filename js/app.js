@@ -10,6 +10,8 @@ todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // call addTodo function with input box current value
   addTodo(todoInput.value);
+  // finally clear the input box value
+  todoInput.value = "";
 });
 
 // function to add todo
@@ -26,9 +28,6 @@ addTodo = (item) => {
     // then add it to todos array
     todos.push(todo);
     addToLocalStorage(todos); // then adding it to localStorage
-
-    // finally clear the input box value
-    todoInput.value = "";
   }
 };
 
@@ -55,8 +54,8 @@ renderTodos = (todos) => {
     }
 
     li.innerHTML = `
-      <input type="checkbox" class="checkbox" ${checked}>
-      ${item.name}
+      <input type="checkbox" id="todo-${todo.id}" class="checkbox" ${checked}>
+      <label for="todo-${todo.id}">${item.name}</label>
       <button class="delete-button">X</button>
     `;
     // finally add the <li> to the <ul>
@@ -75,9 +74,7 @@ addToLocalStorage = (todos) => {
   console.log(todos, null, 2);
 };
 
-
 // make a function called getFromLocalStorage() below the previous code, then call it.
-
 
 // function helps to get everything from local storage
 getFromLocalStorage = () => {
