@@ -20,21 +20,62 @@
         <button class="btn btn-icon"><img src="./images/icon-moon.svg" alt="" /></button>
       </nav>
     </header>
+
     <main class="todo container">
-      <form class="todo-form dummy-class">
+      <form class="todo-form">
+        <input type="checkbox" />
         <input type="text" placeholder="Create a new todo" name="newTodo" />
       </form>
-      <ul class="todo-items todo-list dummy-class"></ul>
-      <div class="todo-actions dummy-class">
-        <div class="status">5 items left</div>
-          <div class="info">
-            <a href="#">All</a>
-            <a href="#">Active</a>
-            <a href="#">Completed</a>
+
+      <ul class="todo-list">
+        <li class="list-item">
+          <label>
+            <input type="checkbox" />
+            <span>Todo #1</span>
+          </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item">
+          <label>
+            <input type="checkbox" />
+            <span>Todo #2</span>
+          </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item">
+          <label>
+            <input type="checkbox" />
+            <span>Todo #3</span>
+          </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item">
+          <label>
+            <input type="checkbox" />
+            <span>Todo #4</span>
+          </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item todo-actions">
+          <span class="todo-remaining">5 items left</span>
+          <div class="todo-state">
+            <button class="active">All</button>
+            <button>Active</button>
+            <button>Clear</button>
           </div>
-        <div class="clearAll">Clear All</div>
-     </div>
+          <button class="todo-clear">Clear completed</button>
+        </li>
+      </ul>
     </main>
+
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
