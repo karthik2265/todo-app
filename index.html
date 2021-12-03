@@ -20,13 +20,23 @@
         <button class="btn btn-icon"><img src="./images/icon-moon.svg" alt="" /></button>
       </nav>
     </header>
+
     <main class="todo container">
-      <form class="todo-form dummy-class">
+      <form class="todo-form">
+        <input type="checkbox" />
         <input type="text" placeholder="Create a new todo" name="newTodo" />
       </form>
-      <ul class="todo-items todo-list dummy-class"></ul>
-      <div class="todo-actions dummy-class">TODO ACTIONS HERE</div>
+      <ul class="todo-list">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" />
+            Todo #1
+          </label>
+        </li>
+      </ul>
+      <div class="todo-actions">TODO ACTIONS HERE</div>
     </main>
+
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
