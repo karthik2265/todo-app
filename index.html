@@ -27,14 +27,52 @@
         <input type="text" placeholder="Create a new todo" name="newTodo" />
       </form>
       <ul class="todo-list">
-        <li>
-          <label class="todo-item">
+        <li class="list-item">
+          <label>
             <input type="checkbox" />
-            Todo #1
+            <span>Todo #1</span>
           </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item">
+          <label>
+            <input type="checkbox" />
+            <span>Todo #2</span>
+          </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item">
+          <label>
+            <input type="checkbox" />
+            <span>Todo #3</span>
+          </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item">
+          <label>
+            <input type="checkbox" />
+            <span>Todo #4</span>
+          </label>
+          <button>
+            <img src="./images/icon-cross.svg" alt="Delete todo" />
+          </button>
+        </li>
+        <li class="list-item todo-actions">
+          <span class="todo-remaining">5 items left</span>
+          <div class="todo-state">
+            <button class="active">All</button>
+            <button>Active</button>
+            <button>Clear</button>
+          </div>
+          <button class="todo-clear">Clear completed</button>
         </li>
       </ul>
-      <div class="todo-actions">TODO ACTIONS HERE</div>
     </main>
 
     <script type="text/javascript" src="js/app.js"></script>
