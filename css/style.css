@@ -3,7 +3,7 @@
   /* === COLORS === */
   /* Primary */
   --bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
   /* Neutral: Light Theme */
   --clr-fill-primary: hsl(236, 33%, 92%);
@@ -52,6 +52,21 @@ button {
   outline: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 1.7em;
+  height: 1.7em;
+  border: 1px solid var(--clr-muted-100);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background: url("../images/icon-check.svg"), var(--check-background);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* === CSS Utilities === */
