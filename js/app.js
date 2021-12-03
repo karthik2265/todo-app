@@ -60,7 +60,7 @@ renderTodos = (todos) => {
         onClick="toggle(${item.id})"
         ${checked}>
       <label for="${item.id}">${item.name}</label>
-      <button class="delete-button" onClick="deleteTodo(${item.id})">X</button>
+      <button class="delete-button"  onClick="deleteTodo(${item.id})"><strong>❌ </strong></button>
     `
     // finally add the <li> to the <ul>
     todoItemsList.append(li)
