@@ -28,52 +28,17 @@
       </form>
 
       <ul class="todo-list">
-        <li class="list-item">
-          <label>
-            <input type="checkbox" />
-            <span>Todo #1</span>
-          </label>
-          <button>
-            <img src="./images/icon-cross.svg" alt="Delete todo" />
-          </button>
-        </li>
-        <li class="list-item">
-          <label>
-            <input type="checkbox" />
-            <span>Todo #2</span>
-          </label>
-          <button>
-            <img src="./images/icon-cross.svg" alt="Delete todo" />
-          </button>
-        </li>
-        <li class="list-item">
-          <label>
-            <input type="checkbox" />
-            <span>Todo #3</span>
-          </label>
-          <button>
-            <img src="./images/icon-cross.svg" alt="Delete todo" />
-          </button>
-        </li>
-        <li class="list-item">
-          <label>
-            <input type="checkbox" />
-            <span>Todo #4</span>
-          </label>
-          <button>
-            <img src="./images/icon-cross.svg" alt="Delete todo" />
-          </button>
-        </li>
-        <li class="list-item todo-actions">
+      </ul>
+        
+        <div class="list-item todo-actions">
           <span class="todo-remaining">5 items left</span>
           <div class="todo-state">
-            <button class="active">All</button>
-            <button>Active</button>
-            <button>Clear</button>
+            <button class="active btn-all">All</button>
+            <button class="btn-active">Active</button>
+            <button class="btn-completed">Completed</button>
           </div>
-          <button class="todo-clear">Clear completed</button>
-        </li>
-      </ul>
+          <button class="todo-clear btn-clear-completed"> Clear completed</button>
+        </div>
     </main>
 
     <script type="text/javascript" src="js/app.js"></script>

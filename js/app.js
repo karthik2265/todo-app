@@ -1,7 +1,13 @@
 const todoForm = document.querySelector('.todo-form')
-const todoItemsList = document.querySelector('.todo-items')
+const todoItemsList = document.querySelector('.todo-list')
 const themeBtn = document.querySelector('.nav img')
 const body = document.querySelector('body')
+const btnAll = document.querySelector('.btn-all')
+const btnActive = document.querySelector('.btn-active')
+const btnCompleted = document.querySelector('.btn-completed')
+const filterBtns = [btnAll, btnActive, btnCompleted]
+const btnClearCompleted = document.querySelector('.btn-clear-completed')
+const todoRemaining = document.querySelector('.todo-remaining')
 
 let todos = []
 
@@ -37,6 +43,8 @@ renderTodos = (todos) => {
   // clear everything inside <ul> with class=todo-items
   todoItemsList.innerHTML = ''
 
+  let completedCount = 0
+
   // run through each item inside todos
   todos.forEach((item) => {
     // check if the item is completed
@@ -46,25 +54,27 @@ renderTodos = (todos) => {
     // <li> </li>
     const li = document.createElement('li')
     // <li class="item"> </li>
-    li.setAttribute('class', 'item')
+    li.setAttribute('class', 'list-item')
     // if item is completed, then add a class to <li> called 'checked', which will add line-through style
     if (checked) {
       li.classList.add('checked')
+      completedCount++
     }
 
     li.innerHTML = `
       <input
         type="checkbox"
-        id="${item.id}"
+        id=item.id
         class="checkbox"
         onClick="toggle(${item.id})"
         ${checked}>
       <label for="${item.id}">${item.name}</label>
-      <button class="delete-button"  onClick="deleteTodo(${item.id})"><strong>❌ </strong></button>
+      <button class="delete-button"  onClick='deleteTodo(${item.id})'><strong>❌ </strong></button>
     `
     // finally add the <li> to the <ul>
     todoItemsList.append(li)
   })
+  todoRemaining.innerText = `${todos.length - completedCount} items left`
 }
 
 //addToLocalStorage() & getFromLocalStorage()
@@ -111,7 +121,6 @@ function deleteTodo(id) {
     // use != not !==, because here types are different. One is number and other is string
     return item.id != id
   })
-
   // update the localStorage
   addToLocalStorage(todos)
 }
@@ -131,6 +140,52 @@ changeTheme = () => {
 
 // event listener on theme-btn
 themeBtn.addEventListener('click', changeTheme)
+
+// event listener on clear-completed
+btnClearCompleted.addEventListener('click', () => {
+  todos = todos.filter((item) => {
+    return !item.completed
+  })
+  renderTodos(todos)
+})
+
+// function to filter todos
+function filterTodos(filterFunc) {
+  let filteredTodos = todos.filter(filterFunc)
+  renderTodos(filteredTodos)
+}
+
+// event listeners on filter buttons
+btnAll.addEventListener('click', () => {
+  filterTodos(function (item) {
+    return true
+  })
+  removeActiveClassforAll()
+  btnAll.classList.add('active')
+})
+
+btnActive.addEventListener('click', () => {
+  filterTodos(function (item) {
+    return !item.completed
+  })
+  removeActiveClassforAll()
+  btnActive.classList.add('active')
+})
+
+btnCompleted.addEventListener('click', () => {
+  filterTodos(function (item) {
+    return item.completed
+  })
+  removeActiveClassforAll()
+  btnCompleted.classList.add('active')
+})
+
+// function to remove active class on filter buttons
+function removeActiveClassforAll() {
+  filterBtns.forEach((btn) => {
+    btn.classList.remove('active')
+  })
+}
 
 // initially get everything from localStorage
 getFromLocalStorage()
