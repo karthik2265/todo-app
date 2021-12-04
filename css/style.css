@@ -139,6 +139,8 @@ li {
 }
 
 .todo-form input[type="text"] {
+  background-color: var(--clr-fill-secondary);
+  color: var(--clr-text-base);
   width: 100%;
   font-size: 1rem;
   padding: 1rem 1.5rem;
