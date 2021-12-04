@@ -4,7 +4,7 @@
   /* Primary */
   --bright-blue: hsl(220, 98%, 61%);
   --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-  
+
   /* === TYPOGRAPHY === */
   --font-family: 'Josefin Sans', sans-serif;
   --font-size: 18px;
@@ -65,7 +65,7 @@ button:hover {
   color: var(--clr-text-base);
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   appearance: none;
   width: 1.3rem;
   height: 1.3rem;
@@ -74,8 +74,8 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-input[type="checkbox"]:checked {
-  background: url("../images/icon-check.svg"), var(--check-background);
+input[type='checkbox']:checked {
+  background: url('../images/icon-check.svg'), var(--check-background);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -131,14 +131,14 @@ li {
   position: relative;
 }
 
-.todo-form input[type="checkbox"] {
+.todo-form input[type='checkbox'] {
   position: absolute;
   top: 50%;
   left: 1.5rem;
   transform: translateY(-50%);
 }
 
-.todo-form input[type="text"] {
+.todo-form input[type='text'] {
   width: 100%;
   font-size: 1rem;
   padding: 1rem 1.5rem;
@@ -147,7 +147,7 @@ li {
   border-radius: 0.3rem;
 }
 
-.todo-form input[type="text"]::placeholder {
+.todo-form input[type='text']::placeholder {
   color: var(--clr-muted-100);
 }
 
@@ -176,7 +176,7 @@ li {
   color: var(--clr-text-base);
 }
 
-.list-item input:checked + span {
+.list-item input:checked + label {
   color: var(--clr-muted-200);
   text-decoration: line-through;
 }
@@ -198,8 +198,6 @@ li {
 }
 
 .todo-remaining {
-  align-items:center;
-  justify-content:center;
   color: var(--clr-muted-100);
   font-size: 0.9rem;
 }
