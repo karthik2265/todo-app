@@ -10,7 +10,6 @@ const btnClearCompleted = document.querySelector('.btn-clear-completed')
 const todoRemaining = document.querySelector('.todo-remaining')
 
 let todos = []
-
 // add an eventListener on form, and listen for submit event
 todoForm.addEventListener('submit', (e) => {
   // prevent the page from reloading when submitting the form
@@ -31,7 +30,6 @@ addTodo = (item) => {
       name: item,
       completed: false,
     }
-
     // then add it to todos array
     todos.push(todo)
     addToLocalStorage(todos) // then adding it to localStorage
@@ -69,7 +67,7 @@ renderTodos = (todos) => {
         onClick="toggle(${item.id})"
         ${checked}>
       <label for="${item.id}">${item.name}</label>
-      <button class="edit-button" onClick = 'editTodo(${item.id})'>Edit</button>
+      
       <button class="delete-button"  onClick='deleteTodo(${item.id})'><strong>❌ </strong></button>
     `
     // finally add the <li> to the <ul>
@@ -113,16 +111,6 @@ toggle = (id) => {
   })
 
   addToLocalStorage(todos)
-}
-
-//edit a todo from todos array, then update local storage and renders updates list to screen
-function editTodo(id){
-  console.log("Edit task...");
-  todos = todos.filter(function (item) {
-    
-  })
-  addToLocalStorage(todos)
-  
 }
 
 // deletes a todo from todos array, then updates localstorage and renders updated list to screen
